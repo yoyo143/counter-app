@@ -47,6 +47,7 @@ pipeline {
     stage ('Docker Tag and Push'){
       steps {
         sh '''
+          tag=`git log --format="%H" -n 1 | cut -c 1-7`
           sudo docker image tag mycounterapp:${tag}${BUILD_ID} chgoutam/mycounterapp:${tag}${BUILD_ID}
           sudo docker image push chgoutam/mycounterapp:${tag}${BUILD_ID}
         '''
