@@ -44,5 +44,13 @@ pipeline {
         '''
       }
     }
+    stage ('Docker Tag and Push'){
+      steps {
+        sh '''
+          sudo docker image tag mycounterapp:${tag}${BUILD_ID} chgoutam/mycounterapp:${tag}${BUILD_ID}
+          sudo docker image push chgoutam/mycounterapp:${tag}${BUILD_ID}
+        '''
+      }
+    }
   }
 }
