@@ -23,7 +23,17 @@ pipeline {
   stages {
     stage ('Code Checkout'){
       steps {
-        echo "this is code checkout stage"
+        git credentialsId: 'github-credentials', url: 'https://github.com/gkdevops/counter-app.git'
+      }
+    }
+    stage ('npm install'){
+      steps {
+        sh "npm install"
+      }
+    }
+    stage ('create build'){
+      steps {
+        sh "npm run build"
       }
     }
   }
