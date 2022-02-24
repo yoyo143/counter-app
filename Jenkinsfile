@@ -1,6 +1,6 @@
 pipeline {
 
-  agent {
+  agent any {
     label 'jenkins-worker-1'
     environment {
 		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raj')
@@ -27,7 +27,7 @@ pipeline {
   stages {
     stage ('Code Checkout'){
       steps {
-        git credentialsId: 'github-credentials', url: 'https://github.com/gkdevops/counter-app.git'
+        git credentialsId: 'github-credentials', url: 'https://github.com/yoyo143/counter-app.git'
       }
     }
     stage ('npm install'){
