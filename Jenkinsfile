@@ -1,12 +1,9 @@
 pipeline {
 
-  agent any {
-    label 'jenkins-worker-1'
-    environment {
-		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raj')
+  agent any 
+  environment {
+	  DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raj')
 	}
-
-  }
 
   parameters {
     string defaultValue: 'master', name: 'branch_name'
