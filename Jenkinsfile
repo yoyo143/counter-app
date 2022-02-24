@@ -32,11 +32,7 @@ pipeline {
         sh "npm install"
       }
     }
-    stage ('create build'){
-      steps {
-        sh "npm run build"
-      }
-    }
+
     stage ('Docker Image Build'){
       steps {
         sh '''
