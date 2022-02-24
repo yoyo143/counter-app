@@ -2,6 +2,10 @@ pipeline {
 
   agent {
     label 'jenkins-worker-1'
+    environment {
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-cred-raj')
+	}
+
   }
 
   parameters {
