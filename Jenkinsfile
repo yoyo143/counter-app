@@ -54,8 +54,7 @@ pipeline {
           sudo docker image tag mycounterapp:${tag}${BUILD_ID} rajendrakumarm/devops:${tag}${BUILD_ID}
           sudo docker push rajendrakumarm/devops:${tag}${BUILD_ID}
 	  }
+	  }
 	'''      
-      
-    }
   }
 }
