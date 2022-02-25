@@ -46,7 +46,8 @@ pipeline {
       withCredentials([string(credentialsId: 'Mummy@7865', variable: 'dockerpwd')]) {
       sh "docker login -u rajendrakumarm -p ${dockerpwd}"
       }
-      }
+    }
+   }
    stage ('Docker Tag and Push'){
       steps {
         sh '''
@@ -54,7 +55,7 @@ pipeline {
           sudo docker image tag mycounterapp:${tag}${BUILD_ID} rajendrakumarm/devops:${tag}${BUILD_ID}
           sudo docker push rajendrakumarm/devops:${tag}${BUILD_ID}
 	  }
-	  }
+	}
 	'''      
   }
 }
