@@ -43,10 +43,10 @@ pipeline {
     }
    stage ('Docker login'){
       steps{
-      withCredentials([string(credentialsId: 'DockerHubPwd', variable: 'dockerpwd')]) {
+       
       sh "docker login -u username -p Mummy@7865"
       
-      }
+      
     }
   }
    stage ('Docker Tag and Push'){
