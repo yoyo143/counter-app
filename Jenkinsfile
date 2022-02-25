@@ -48,7 +48,8 @@ pipeline {
           sudo docker image tag mycounterapp:${tag}${BUILD_ID} rajendrakumarm/devops:${tag}${BUILD_ID}
 	  withDockerRegistry([ credentialsId: "dockerhub-cred-raj", url: "https://hub.docker.com/r/rajendrakumarm/devops" ]) {
           sudo docker push rajendrakumarm/devops:${tag}${BUILD_ID}
-        '''
+        }
+	'''
 	      
       }
     }
