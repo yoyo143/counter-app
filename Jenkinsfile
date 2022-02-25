@@ -41,12 +41,17 @@ pipeline {
         '''
       }
     }
-    stage ('Docker Tag and Push'){
+   stage("Docker login"){
+      steps{
+      withCredentials([string(credentialsId: 'Mummy@7865', variable: 'dockerpwd')]) {
+      sh "docker login -u rajendrakumarm -p ${dockerpwd}"
+      }
+      }
+   stage ('Docker Tag and Push'){
       steps {
         sh '''
           tag=`git log --format="%H" -n 1 | cut -c 1-7`
           sudo docker image tag mycounterapp:${tag}${BUILD_ID} rajendrakumarm/devops:${tag}${BUILD_ID}
-	  withDockerRegistry([ credentialsId: "dockerhub-cred-raj", url: "https://hub.docker.com/r/rajendrakumarm/devops" ]) {
           sudo docker push rajendrakumarm/devops:${tag}${BUILD_ID}
         }
 	'''
