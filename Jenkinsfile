@@ -46,7 +46,6 @@ pipeline {
         sh '''
           tag=`git log --format="%H" -n 1 | cut -c 1-7`
           sudo docker image tag mycounterapp:${tag}${BUILD_ID} rajendrakumarm/devops:${tag}${BUILD_ID}
-	  withDockerRegistry([ credentialsId: "dockerhub-cred-raj", url: "https://hub.docker.com/repository/docker/rajendrakumarm/devops" ])
           sudo docker push rajendrakumarm/devops:${tag}${BUILD_ID}
         '''
       }
