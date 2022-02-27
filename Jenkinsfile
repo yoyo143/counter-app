@@ -63,7 +63,7 @@ pipeline {
         sh '''
           
 	  tag=`git log --format="%H" -n 1 | cut -c 1-7`
-	  docker run --name jenkins --rm -p 80:80 rajendrakumarm/devops:${tag}${BUILD_ID}
+	  docker run -d --name jenkins --rm -p 80:80 rajendrakumarm/devops:${tag}${BUILD_ID}
 	  
           '''
      }
