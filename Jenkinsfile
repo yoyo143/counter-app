@@ -63,7 +63,7 @@ pipeline {
         sh '''
           
 	  tag=`git log --format="%H" -n 1 | cut -c 1-7`
-	  docker run -it rajendrakumarm/devops:${tag}
+	  docker run -i rajendrakumarm/devops:${tag}
 	  
           '''
      }
