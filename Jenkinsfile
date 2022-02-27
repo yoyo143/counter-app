@@ -58,13 +58,6 @@ pipeline {
 	  '''   
 	  }
 	}
-   stage ('Docker Deployment'){
-      steps{
-       
-      sh "docker run -it rajendrakumarm/devops:${tag}${BUILD_ID}"
-      
-    
-    }
-  }
+
   }
 }
