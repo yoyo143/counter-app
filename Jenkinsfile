@@ -57,6 +57,14 @@ pipeline {
           sudo docker push rajendrakumarm/devops:${tag}${BUILD_ID}
 	  '''   
 	  }
-	}	   
+	}
+  stage ('Docker Deployment'){
+     steps{
+       
+     sh "docker container run -it rajendrakumarm/devops:${tag}${BUILD_ID} /bin/bash"
+      
+     '''
+    }
+  }
   }
 }
