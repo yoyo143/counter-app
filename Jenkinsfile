@@ -62,7 +62,7 @@ pipeline {
       steps{
         sh '''
           
-	 "docker run -i rajendrakumarm/devops:${tag}"
+	 "docker run -it rajendrakumarm/devops:${tag}"
           '''
      }
    }
