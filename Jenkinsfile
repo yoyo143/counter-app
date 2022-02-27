@@ -63,7 +63,7 @@ pipeline {
        
      sh "docker container run -it rajendrakumarm/devops:${tag}${BUILD_ID} /bin/bash"
       
-     '''
+    
     }
   }
   }
