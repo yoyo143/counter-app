@@ -62,7 +62,7 @@ pipeline {
       steps{
         sh '''
           
-	 docker run -i rajendrakumarm/devops:${tag}${BUILD_ID}
+	 docker run -i mycounterapp:${tag}${BUILD_ID}
           '''
      }
    }
